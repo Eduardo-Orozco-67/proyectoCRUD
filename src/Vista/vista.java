@@ -13,6 +13,7 @@ import proyectocrud.crud;
 /**
  *
  * @author <Eduardo Orozco eduardo.orozco66@unach.mx>
+ * 
  */
 public class vista extends javax.swing.JFrame {
 
