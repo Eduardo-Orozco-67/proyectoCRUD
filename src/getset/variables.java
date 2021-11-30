@@ -9,6 +9,7 @@ package getset;
 /**
  *
  * @author <Eduardo Orozco eduardo.orozco66@unach.mx>
+ * 
  */
 public class variables {
 
