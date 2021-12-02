@@ -13,7 +13,7 @@ import proyectocrud.crud;
 /**
  *
  * @author <Eduardo Orozco eduardo.orozco66@unach.mx>
- * 
+ *
  */
 public class vista extends javax.swing.JFrame {
 
@@ -2086,15 +2086,16 @@ public class vista extends javax.swing.JFrame {
         //si no tienen mandamos una alerta
         // si no ejecutamos el metodo insertar 
         //pasando como parametros ls datos de los txt
-         try{
-        
-        if (txtdnic.getText().equals("") || txtnombrec.getText().equals("") || txtpobc.getText().equals("") || txtdomc.getText().equals("") || txttelc.getText().equals("") || txtsalc.getText().equals("") ) {
-            JOptionPane.showMessageDialog(null, "Ingrese Valores");
-        } else {
-            float sal = Float.valueOf(txtsalc.getText());
-            objcrud.insertar(txtdnic.getText(), txtnombrec.getText(), txtpobc.getText(), txtdomc.getText(), txttelc.getText(), sal);
+        try {
+
+            if (txtdnic.getText().equals("") || txtnombrec.getText().equals("") || txtpobc.getText().equals("") || txtdomc.getText().equals("") || txttelc.getText().equals("") || txtsalc.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Ingrese Valores");
+            } else {
+                float sal = Float.valueOf(txtsalc.getText());
+                objcrud.insertar(txtdnic.getText(), txtnombrec.getText(), txtpobc.getText(), txtdomc.getText(), txttelc.getText(), sal);
+            }
+        } catch (Exception ee) {
         }
-         }catch(Exception ee){}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -2255,32 +2256,41 @@ public class vista extends javax.swing.JFrame {
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
-
-        objvar.setDni(txtdnicee.getText());
-        objvar.setNombre(txtnomcee.getText());
-        objvar.setPoblacion(txtpocee.getText());
-        objvar.setDireccion(txtdomcee.getText());
-        objvar.setTelefono(txttelcee.getText());
-        float sal = Float.valueOf(txtsalcee.getText());
-        objvar.setSalario(sal);
-        objcrud.actualizar(objvar.getDni(), objvar.getNombre(), objvar.getPoblacion(), objvar.getDireccion(), objvar.getTelefono(), objvar.getSalario());
-        txtdnicee.setText("");
-        txtnomcee.setText("");
-        txtpocee.setText("");
-        txtdomcee.setText("");
-        txttelcee.setText("");
-        txtsalcee.setText("");
+        int g = JOptionPane.showConfirmDialog(null, " ¡¿Seguro que desea editar este registro?!", "Cita", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        if (g == JOptionPane.YES_OPTION) {
+            objvar.setDni(txtdnicee.getText());
+            objvar.setNombre(txtnomcee.getText());
+            objvar.setPoblacion(txtpocee.getText());
+            objvar.setDireccion(txtdomcee.getText());
+            objvar.setTelefono(txttelcee.getText());
+            float sal = Float.valueOf(txtsalcee.getText());
+            objvar.setSalario(sal);
+            objcrud.actualizar(objvar.getDni(), objvar.getNombre(), objvar.getPoblacion(), objvar.getDireccion(), objvar.getTelefono(), objvar.getSalario());
+            txtdnicee.setText("");
+            txtnomcee.setText("");
+            txtpocee.setText("");
+            txtdomcee.setText("");
+            txttelcee.setText("");
+            txtsalcee.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se Actualizo nada!!!", "mensaje", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        objvar.setDni(txtdnicee.getText());
-        objcrud.eliminar(objvar.getDni());
-        txtdnicee.setText("");
-        txtnomcee.setText("");
-        txtpocee.setText("");
-        txtdomcee.setText("");
-        txttelcee.setText("");
-        txtsalcee.setText("");
+        int g = JOptionPane.showConfirmDialog(null, " ¡¿Seguro que desea eliminar este registro?!", "Cita", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        if (g == JOptionPane.YES_OPTION) {
+            objvar.setDni(txtdnicee.getText());
+            objcrud.eliminar(objvar.getDni());
+            txtdnicee.setText("");
+            txtnomcee.setText("");
+            txtpocee.setText("");
+            txtdomcee.setText("");
+            txttelcee.setText("");
+            txtsalcee.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se Elimino nada!!!", "mensaje", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void txtmatcab1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmatcab1ActionPerformed
@@ -2302,25 +2312,35 @@ public class vista extends javax.swing.JFrame {
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         // TODO add your handling code here:
-        objvar.setMatricula(txtmatcab1.getText());
-        objvar.setModelo(txtmocab1.getText());
-        objvar.setPotencia(txtpocab1.getText());
-        objvar.setTipo(txtticab1.getText());
-        objcrud.actualizar1(objvar.getMatricula(), objvar.getModelo(), objvar.getPotencia(), objvar.getTipo());
-        txtmatcab1.setText("");
-        txtmocab1.setText("");
-        txtpocab1.setText("");
-        txtticab1.setText("");
+        int g = JOptionPane.showConfirmDialog(null, " ¡¿Seguro que desea editar este registro?!", "Cita", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        if (g == JOptionPane.YES_OPTION) {
+            objvar.setMatricula(txtmatcab1.getText());
+            objvar.setModelo(txtmocab1.getText());
+            objvar.setPotencia(txtpocab1.getText());
+            objvar.setTipo(txtticab1.getText());
+            objcrud.actualizar1(objvar.getMatricula(), objvar.getModelo(), objvar.getPotencia(), objvar.getTipo());
+            txtmatcab1.setText("");
+            txtmocab1.setText("");
+            txtpocab1.setText("");
+            txtticab1.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se Actualizo nada!!!", "mensaje", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
-        objvar.setMatricula(txtmatcab1.getText());
-        objcrud.eliminar1(objvar.getMatricula());
-        txtmatcab1.setText(var.getMatricula());
-        txtmocab1.setText(var.getModelo());
-        txtpocab1.setText(var.getPotencia());
-        txtticab1.setText(var.getTipo());
+        int g = JOptionPane.showConfirmDialog(null, " ¡¿Seguro que desea eliminar este registro?!", "Cita", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        if (g == JOptionPane.YES_OPTION) {
+            objvar.setMatricula(txtmatcab1.getText());
+            objcrud.eliminar1(objvar.getMatricula());
+            txtmatcab1.setText(var.getMatricula());
+            txtmocab1.setText(var.getModelo());
+            txtpocab1.setText(var.getPotencia());
+            txtticab1.setText(var.getTipo());
+        } else {
+            JOptionPane.showMessageDialog(null, "No se Elimino nada!!!", "mensaje", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
@@ -2341,27 +2361,37 @@ public class vista extends javax.swing.JFrame {
     }//GEN-LAST:event_txtfeccb1ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        objvar.setMatriculacc(txtmatccb1.getText());
-        objvar.setDnicc(txtdniccb1.getText());
-        objvar.setFechacc(txtfeccb1.getText());
-        objcrud.actualizar2(objvar.getMatriculacc(), objvar.getDnicc(), objvar.getFechacc());
-        txtmatccb1.setText("");
-        txtdniccb1.setText("");
-        txtfeccb1.setText("");
+        int g = JOptionPane.showConfirmDialog(null, " ¡¿Seguro que desea editar este registro?!", "Cita", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        if (g == JOptionPane.YES_OPTION) {
+            objvar.setMatriculacc(txtmatccb1.getText());
+            objvar.setDnicc(txtdniccb1.getText());
+            objvar.setFechacc(txtfeccb1.getText());
+            objcrud.actualizar2(objvar.getMatriculacc(), objvar.getDnicc(), objvar.getFechacc());
+            txtmatccb1.setText("");
+            txtdniccb1.setText("");
+            txtfeccb1.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se Actualizo nada!!!", "mensaje", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
         // TODO add your handling code here:
-        objvar.setMatriculacc(txtmatccb1.getText());
-        objcrud.eliminar2(objvar.getMatriculacc());
-        txtmatccb1.setText(var.getMatriculacc());
-        txtdniccb1.setText(var.getModelo());
-        txtfeccb1.setText(var.getPotencia());
+        int g = JOptionPane.showConfirmDialog(null, " ¡¿Seguro que desea eliminar este registro?!", "Cita", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        if (g == JOptionPane.YES_OPTION) {
+            objvar.setMatriculacc(txtmatccb1.getText());
+            objcrud.eliminar2(objvar.getMatriculacc());
+            txtmatccb1.setText(var.getMatriculacc());
+            txtdniccb1.setText(var.getModelo());
+            txtfeccb1.setText(var.getPotencia());
+        } else {
+            JOptionPane.showMessageDialog(null, "No se Elimino nada!!!", "mensaje", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
         // TODO add your handling code here:
-         if (txtcpb1.getText().equals("")) {
+        if (txtcpb1.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Ingrese una matricula para la busqueda");
         } else {
 
@@ -2373,19 +2403,29 @@ public class vista extends javax.swing.JFrame {
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
         // TODO add your handling code here:
-        objvar.setPoblacion(txtcpb1.getText());
-        objvar.setNombrepo(txtnompb1.getText());
-        objcrud.actualizar3(objvar.getPoblacion(), objvar.getNombrepo());
-        txtcpb1.setText("");
-        txtnompb1.setText("");
+        int g = JOptionPane.showConfirmDialog(null, " ¡¿Seguro que desea editar este registro?!", "Cita", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        if (g == JOptionPane.YES_OPTION) {
+            objvar.setPoblacion(txtcpb1.getText());
+            objvar.setNombrepo(txtnompb1.getText());
+            objcrud.actualizar3(objvar.getPoblacion(), objvar.getNombrepo());
+            txtcpb1.setText("");
+            txtnompb1.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se Actualizo nada!!!", "mensaje", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
         // TODO add your handling code here:
-        objvar.setCp(txtcpb1.getText());
-        objcrud.eliminar3(objvar.getCp());
-        txtcpb1.setText(var.getCp());
-        txtnompb1.setText(var.getPoblacion());
+        int g = JOptionPane.showConfirmDialog(null, " ¡¿Seguro que desea eliminar este registro?!", "Cita", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        if (g == JOptionPane.YES_OPTION) {
+            objvar.setCp(txtcpb1.getText());
+            objcrud.eliminar3(objvar.getCp());
+            txtcpb1.setText(var.getCp());
+            txtnompb1.setText(var.getPoblacion());
+        } else {
+            JOptionPane.showMessageDialog(null, "No se Elimino nada!!!", "mensaje", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
@@ -2407,23 +2447,30 @@ public class vista extends javax.swing.JFrame {
 
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
         // TODO add your handling code here:
-        objvar.setCodigo(txtcpab1.getText());
-        objvar.setDnipa(txtdnipab1.getText());
-        objvar.setCppa(txtcppab1.getText());
-        objvar.setDescripcion(txtdespab1.getText());
-        objvar.setDestinatario(txtdestpab1.getText());
-        objvar.setDireccion_dest(txtdirdpab1.getText());
-        objcrud.actualizar4(objvar.getCodigo(), objvar.getDnipa(), objvar.getCppa(), objvar.getDescripcion(), objvar.getDestinatario(), objvar.getDireccion_dest());
-        txtcpab1.setText("");
-        txtdnipab1.setText("");
-        txtcppab1.setText("");
-        txtdespab1.setText("");
-        txtdestpab1.setText("");
-        txtdirdpab1.setText("");
+        int g = JOptionPane.showConfirmDialog(null, " ¡¿Seguro que desea editar este registro?!", "Cita", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        if (g == JOptionPane.YES_OPTION) {
+            objvar.setCodigo(txtcpab1.getText());
+            objvar.setDnipa(txtdnipab1.getText());
+            objvar.setCppa(txtcppab1.getText());
+            objvar.setDescripcion(txtdespab1.getText());
+            objvar.setDestinatario(txtdestpab1.getText());
+            objvar.setDireccion_dest(txtdirdpab1.getText());
+            objcrud.actualizar4(objvar.getCodigo(), objvar.getDnipa(), objvar.getCppa(), objvar.getDescripcion(), objvar.getDestinatario(), objvar.getDireccion_dest());
+            txtcpab1.setText("");
+            txtdnipab1.setText("");
+            txtcppab1.setText("");
+            txtdespab1.setText("");
+            txtdestpab1.setText("");
+            txtdirdpab1.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se Actualizo nada!!!", "mensaje", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
         // TODO add your handling code here:
+        int g = JOptionPane.showConfirmDialog(null, " ¡¿Seguro que desea eliminar este registro?!", "Cita", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        if (g == JOptionPane.YES_OPTION) {
         objvar.setCodigo(txtcpab1.getText());
         objcrud.eliminar4(objvar.getCodigo());
         txtcpab1.setText("");
@@ -2432,6 +2479,9 @@ public class vista extends javax.swing.JFrame {
         txtdespab1.setText("");
         txtdestpab1.setText("");
         txtdirdpab1.setText("");
+        } else{
+            JOptionPane.showMessageDialog(null, "No se Elimino nada!!!", "mensaje", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jButton25ActionPerformed
 
     /**
@@ -2451,13 +2501,17 @@ public class vista extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vista.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vista.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vista.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vista.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
