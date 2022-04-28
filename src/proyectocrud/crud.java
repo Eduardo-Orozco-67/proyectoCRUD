@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
  * @author <Eduardo Orozco eduardo.orozco66@unach.mx>
  */
 public class crud {
+    
 
     conexion con = new conexion();
     ResultSet rs;
@@ -261,7 +262,7 @@ public class crud {
             Connection conexion = con.conectar();
             java.sql.Statement st = conexion.createStatement();
             //senetencia sql para la actualizacion
-            String sql = "update camioneros set dni='" + dni + "',nombre='" + nombre + "',poblacion='" + poblacion + "',direccion='" + direccion + "',"
+            String sql = "update contactos set dni='" + dni + "',nombre='" + nombre + "',poblacion='" + poblacion + "',direccion='" + direccion + "',"
                     + "telefono='" + telefono + "',salario='" + salario + "'where dni='" + dni + "'; ";
             st.executeUpdate(sql);
             //cerramos la coneccion
